@@ -1,0 +1,220 @@
+[gd_scene load_steps=18 format=3 uid="uid://c1yr8lqoxfk87"]
+
+[ext_resource type="Script" path="res://Scripts/PrincipalScript.gd" id="1_la2um"]
+[ext_resource type="Texture2D" uid="uid://cnjdrwujgmfg" path="res://Sprites/Personaje.png" id="2_yjvwy"]
+
+[sub_resource type="SystemFont" id="SystemFont_v0xqj"]
+
+[sub_resource type="Theme" id="Theme_1dwow"]
+default_font = SubResource("SystemFont_v0xqj")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xtj0y"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lj1oh"]
+texture = SubResource("CanvasTexture_xtj0y")
+modulate_color = Color(0.26, 0, 0.00433327, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ldq31"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x1rah"]
+texture = SubResource("CanvasTexture_ldq31")
+modulate_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qol5h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k4lvh"]
+texture = SubResource("CanvasTexture_qol5h")
+modulate_color = Color(0.26, 0, 0.00433327, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bojjv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lm818"]
+texture = SubResource("CanvasTexture_bojjv")
+modulate_color = Color(1, 0, 0.0166664, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_x16ud"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p3nog"]
+texture = SubResource("CanvasTexture_x16ud")
+modulate_color = Color(0.000803398, 0, 0.501362, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_q0m13"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0f1g"]
+texture = SubResource("CanvasTexture_q0m13")
+modulate_color = Color(0, 0.0499997, 1, 1)
+
+[sub_resource type="Theme" id="Theme_qijl0"]
+
+[node name="Principal" type="Node2D"]
+script = ExtResource("1_la2um")
+
+[node name="Botones" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Botones"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 138.0
+offset_bottom = 174.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 10
+
+[node name="ButtonMazmorra" type="Button" parent="Botones/VBoxContainer"]
+layout_mode = 2
+text = "Mazmorra"
+
+[node name="ButtonInventario" type="Button" parent="Botones/VBoxContainer"]
+texture_filter = 1
+texture_repeat = 3
+layout_mode = 2
+text = "Inventario"
+
+[node name="ButtonEstadisticas" type="Button" parent="Botones/VBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+text = "Estadisticas"
+
+[node name="ButtonSalir" type="Button" parent="Botones/VBoxContainer"]
+texture_filter = 6
+layout_mode = 2
+text = "Salir"
+
+[node name="MenudeCombate" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelMazmorra" type="Control" parent="MenudeCombate"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Enemigo" type="Node2D" parent="MenudeCombate/PanelMazmorra"]
+position = Vector2(471, 62)
+scale = Vector2(10, 10)
+
+[node name="VidaEnemigo" type="ProgressBar" parent="MenudeCombate/PanelMazmorra/Enemigo"]
+texture_filter = 1
+offset_left = 24.9
+offset_top = 34.1
+offset_right = 216.9
+offset_bottom = 61.1
+scale = Vector2(0.2, 0.2)
+theme = SubResource("Theme_1dwow")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 0
+theme_override_styles/background = SubResource("StyleBoxTexture_lj1oh")
+theme_override_styles/fill = SubResource("StyleBoxTexture_x1rah")
+max_value = 150.0
+value = 150.0
+show_percentage = false
+
+[node name="SpriteEnemigo" type="Sprite2D" parent="MenudeCombate/PanelMazmorra/Enemigo"]
+texture_filter = 1
+position = Vector2(44.2, 13.9)
+scale = Vector2(1.1375, 1.2)
+texture = ExtResource("2_yjvwy")
+
+[node name="VidaEnemigoTexto" type="Label" parent="MenudeCombate/PanelMazmorra/Enemigo"]
+texture_filter = 1
+offset_left = 25.6
+offset_top = 34.7
+offset_right = 126.6
+offset_bottom = 57.7
+scale = Vector2(0.2, 0.2)
+text = "VidaEnemigo"
+
+[node name="Jugador" type="Node2D" parent="MenudeCombate/PanelMazmorra"]
+position = Vector2(0, 95)
+
+[node name="VidaJugador" type="ProgressBar" parent="MenudeCombate/PanelMazmorra/Jugador"]
+offset_left = 109.0
+offset_top = 436.0
+offset_right = 332.0
+offset_bottom = 463.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/background = SubResource("StyleBoxTexture_k4lvh")
+theme_override_styles/fill = SubResource("StyleBoxTexture_lm818")
+value = 100.0
+show_percentage = false
+
+[node name="VidaJugadorTexto" type="Label" parent="MenudeCombate/PanelMazmorra/Jugador"]
+texture_filter = 1
+offset_left = 113.0
+offset_top = 439.0
+offset_right = 296.0
+offset_bottom = 462.0
+scale = Vector2(1.2, 1.2)
+text = "Vida"
+
+[node name="EnergiaJugador" type="ProgressBar" parent="MenudeCombate/PanelMazmorra/Jugador"]
+offset_left = 109.0
+offset_top = 480.0
+offset_right = 332.0
+offset_bottom = 507.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/background = SubResource("StyleBoxTexture_p3nog")
+theme_override_styles/fill = SubResource("StyleBoxTexture_l0f1g")
+value = 100.0
+show_percentage = false
+
+[node name="EnergiaJugadorTexto" type="Label" parent="MenudeCombate/PanelMazmorra/Jugador"]
+texture_filter = 1
+offset_left = 116.0
+offset_top = 485.0
+offset_right = 255.0
+offset_bottom = 508.0
+text = "Energia"
+
+[node name="BotonesHabilidades" type="Node2D" parent="MenudeCombate/PanelMazmorra/Jugador"]
+
+[node name="Patada" type="Button" parent="MenudeCombate/PanelMazmorra/Jugador/BotonesHabilidades"]
+offset_left = 420.0
+offset_top = 420.0
+offset_right = 564.0
+offset_bottom = 463.0
+text = "Patada"
+
+[node name="Corte" type="Button" parent="MenudeCombate/PanelMazmorra/Jugador/BotonesHabilidades"]
+offset_left = 420.0
+offset_top = 475.0
+offset_right = 564.0
+offset_bottom = 518.0
+text = "Corte"
+
+[node name="Embestida" type="Button" parent="MenudeCombate/PanelMazmorra/Jugador/BotonesHabilidades"]
+offset_left = 420.0
+offset_top = 530.0
+offset_right = 564.0
+offset_bottom = 573.0
+text = "Embestida"
+
+[node name="PanelInventario" type="Control" parent="MenudeCombate"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelEstadisticas" type="Control" parent="MenudeCombate"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LogCombate" type="Label" parent="."]
+texture_filter = 1
+offset_left = 64.0
+offset_top = 364.0
+offset_right = 566.0
+offset_bottom = 496.0
+theme = SubResource("Theme_qijl0")
+theme_override_colors/font_color = Color(1, 1, 1, 1)

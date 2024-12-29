@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://t40a2o8ijqdv"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_dusmd"]
+
+[node name="MainMenu" type="Node2D"]
+position = Vector2(-200, 100)
+scale = Vector2(2, 2)
+script = ExtResource("1_dusmd")
+
+[node name="Título" type="Label" parent="."]
+texture_filter = 1
+offset_left = 278.0
+offset_top = -24.0
+offset_right = 564.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 75
+text = "ReLabel"
+
+[node name="ButtonJugar" type="Button" parent="."]
+texture_filter = 1
+offset_left = 401.0
+offset_top = 92.5
+offset_right = 450.0
+offset_bottom = 123.5
+text = "Jugar"
